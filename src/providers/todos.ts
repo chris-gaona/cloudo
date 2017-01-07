@@ -38,7 +38,7 @@ export class Todos {
       }).then((result) => {
         this.data = [];
 
-        let docs = result.rows.map((row) => {
+        result.rows.map((row) => {
           this.data.push(row.doc);
         });
 
