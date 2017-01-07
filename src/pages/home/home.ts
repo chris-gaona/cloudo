@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-
 import { NavController, AlertController } from 'ionic-angular';
 import { Todos } from '../../providers/todos';
+import { LoginPage } from '../login/login';
+
 
 @Component({
   selector: 'page-home',
@@ -18,6 +19,12 @@ export class HomePage {
     this.todoService.getTodos().then((data) => {
       this.todos = data;
     });
+  }
+
+  logout(){
+    this.todoService.logout();
+    this.todos = null;
+    this.navCtrl.setRoot(LoginPage);
   }
 
   createTodo(){
